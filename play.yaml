@@ -3,14 +3,25 @@
   vars:
     install_directory: /home/jacopo/homelab
   roles:
-    - commons
-    - ddclient
-    - esphome
-    - glances
-    - homeassistant
-    - homepage
-    - nginxproxymanager
-    - octoprint
-    - pihole
-    - portainer
-    - wg-easy
+    - name: commons
+      tags: [commons]
+    - name: ddclient
+      tags: [ddclient]
+    - name: esphome
+      tags: [esphome]
+    - name: glances
+      tags: [glances]
+    - name: homeassistant
+      tags: [homeassistant]
+    - name: homepage
+      tags: [homepage]
+    - name: nginxproxymanager
+      tags: [nginxproxymanager]
+    - name: octoprint
+      tags: [octoprint]
+    - name: pihole
+      tags: [pihole]
+    - name: portainer
+      tags: [portainer]
+    - name: wg-easy
+      tags: [wg-easy]
