@@ -1,0 +1,15 @@
+services:
+  homepage:
+    container_name: octoprint
+    hostname: octoprint
+    image: octoprint/octoprint
+    restart: unless-stopped
+    volumes:
+      - ./config:/octoprint
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+
+networks:
+  default:
+    name: scoobydoo
+    external: true
