@@ -1,0 +1,25 @@
+---
+- name: Install required packages
+  dnf:
+    name:
+      - dnf-utils
+    state: present
+  become: true
+
+- name: Install Docker
+  dnf:
+    name: docker-ce
+    state: present
+    enablerepo: "https://download.docker.com/linux/centos/docker-ce.repo"
+  become: true
+
+- name: Start and enable Docker service
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Create Docker network scoobydoo
+  docker_network:
+    name: scoobydoo
+    state: present

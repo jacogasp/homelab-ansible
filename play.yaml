@@ -1,0 +1,16 @@
+---
+- hosts: homelab
+  vars:
+    install_directory: /home/jacopo/homelab
+  roles:
+    - commons
+    - ddclient
+    - esphome
+    - glances
+    - homeassistant
+    - homepage
+    - nginxproxymanager
+    - octoprint
+    - pihole
+    - portainer
+    - wg-easy

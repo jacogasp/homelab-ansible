@@ -1,0 +1,13 @@
+---
+- name: Create a directory for Nginx Proxy Manager
+  file:
+    path: "{{ install_directory }}/nginxproxymanager"
+    state: directory
+- name: Copy the docker-compose.yml file
+  copy:
+    src: docker-compose.yaml
+    dest: "{{ install_directory }}/nginxproxymanager/docker-compose.yaml"
+- name: Run Docker Compose
+  community.docker.docker_compose_v2:
+    project_src: "{{ install_directory }}/nginxproxymanager"
+    state: present # Use 'present' to ensure the services are running

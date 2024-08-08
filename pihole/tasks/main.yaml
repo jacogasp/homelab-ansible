@@ -1,0 +1,20 @@
+---
+- name: Create a directory for PiHole
+  file:
+    path: "{{ install_directory }}/pihole"
+    state: directory
+
+- name: Copy the docker-compose.yml file
+  copy:
+    src: docker-compose.yaml
+    dest: "{{ install_directory }}/pihole/docker-compose.yaml"
+
+- name: Copy the .env file
+  copy:
+    src: .env
+    dest: "{{ install_directory }}/pihole/.env"
+
+- name: Run Docker Compose
+  community.docker.docker_compose_v2:
+    project_src: "{{ install_directory }}/pihole"
+    state: present # Use 'present' to ensure the services are running

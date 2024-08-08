@@ -6,8 +6,8 @@ services:
     restart: unless-stopped
     volumes:
       - ./config:/octoprint
-    devices:
-      - /dev/ttyACM0:/dev/ttyACM0
+    # devices:
+    #   - /dev/ttyACM0:/dev/ttyACM0
 
 networks:
   default:
