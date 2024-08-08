@@ -1,0 +1,22 @@
+version: "3"
+services:
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:latest
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=portainer
+      - VIRTUAL_PORT=9000
+    ports:
+      - 8000:8000
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/data
+volumes:
+  portainer:
+    external: true
+networks:
+  default:
+    external: true
+    name: scoobydoo
