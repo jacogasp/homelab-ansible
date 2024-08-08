@@ -23,3 +23,8 @@
   docker_network:
     name: scoobydoo
     state: present
+
+- name: Copy the RootCA file to the host
+  copy:
+    src: "~/Library/Application Support/mkcert/rootCA.pem"
+    dest: /etc/pki/ca-trust/source/anchors/homeCA.pem
