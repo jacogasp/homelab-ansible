@@ -1,0 +1,17 @@
+services:
+  esphome:
+    container_name: esphome
+    hostname: esphome
+    image: ghcr.io/esphome/esphome:latest
+    restart: unless-stopped
+    volumes:
+      - ./config:/config
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      ESPHOME_DASHBOARD_USE_PING: true
+      USERNAME:
+      PASSWORD:
+networks:
+  default:
+    name: scoobydoo
+    external: true

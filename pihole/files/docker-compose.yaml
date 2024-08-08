@@ -1,0 +1,18 @@
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    hostname: pihole
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - ./data/pihole:/etc/pihole
+      - ./data/dnsmasq:/etc/dnsmasq.d
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - WEBPASSWORD=
+      - TZ=Europe/Rome
+      - FTLCONF_LOCAL_IPV4=192.168.1.253
+      - WEB_PORT=8900
+      - DNSMASQ_USER=pihole

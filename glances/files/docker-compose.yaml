@@ -1,0 +1,15 @@
+services:
+  glances:
+    container_name: glances
+    hostname: glances
+    image: nicolargo/glances:latest-full
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      TZ: Europe/Rome
+      GLANCES_OPT: -w
+networks:
+  default:
+    name: scoobydoo
+    external: true

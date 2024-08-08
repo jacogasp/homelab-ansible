@@ -1,0 +1,13 @@
+services:
+  homepage:
+    container_name: homepage
+    hostname: homepage
+    image: ghcr.io/gethomepage/homepage
+    restart: unless-stopped
+    volumes:
+      - ./config:/app/config
+      - /etc/pki/ca-trust/source/anchors:/usr/local/share/ca-certificates
+networks:
+  default:
+    name: scoobydoo
+    external: true

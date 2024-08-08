@@ -1,0 +1,16 @@
+services:
+  ddclient:
+    container_name: ddclient
+    hostname: ddclient
+    image: lscr.io/linuxserver/ddclient:latest
+    restart: unless-stopped
+    volumes:
+      - ./config:/config
+    environment:
+        PUID: 1000
+        PGID: 1000
+        TZ: Europe/Rome
+networks:
+  default:
+    name: scoobydoo
+    external: true
