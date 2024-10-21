@@ -4,10 +4,20 @@
     path: "{{ install_directory }}/ddclient"
     state: directory
 
+- name: Create a directory for ddclient config
+  file:
+    path: "{{ install_directory }}/ddclient/config"
+    state: directory
+
 - name: Copy the docker-compose.yml file
   copy:
     src: docker-compose.yaml
     dest: "{{ install_directory }}/ddclient/docker-compose.yaml"
+
+- name: Copy ddclient.conf
+  copy:
+    src: ddclient.conf
+    dest: "{{ install_directory }}/ddclient/config/ddclient.conf"
 
 - name: Run Docker Compose
   community.docker.docker_compose_v2:
