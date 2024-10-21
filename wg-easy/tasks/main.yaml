@@ -3,6 +3,7 @@
   community.general.modprobe:
     name: iptable-nat
     state: present
+  become: true
 
 - name: Create a directory for wg-easy
   file:
