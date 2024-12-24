@@ -1,0 +1,20 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/settings
+
+background:
+  image: https://w.wallhaven.cc/full/72/wallhaven-72kx69.jpg
+  blur: sm
+  saturate: 50
+  brighness: 50
+  opacity: 50
+
+
+providers:
+  # openweathermap: openweathermapapikey
+  # weatherapi: weatherapiapikey
+
+layout:
+  Monitoring:
+    style: row
+    columns: 4

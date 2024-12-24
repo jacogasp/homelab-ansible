@@ -9,6 +9,17 @@
     src: docker-compose.yaml
     dest: "{{ install_directory }}/homepage/docker-compose.yaml"
 
+- name: Copy config directory
+  copy:
+    src: config
+    dest: "{{ install_directory }}/homepage/"
+  become: true
+
+- name: Copy .env file
+  copy:
+    src: ".env"
+    dest: "{{ install_directory }}/homepage/.env"
+
 - name: Run Docker Compose
   community.docker.docker_compose_v2:
     project_src: "{{ install_directory }}/homepage"

@@ -1,0 +1,131 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+
+- Home:
+    - Home Assistant:
+        href: "https://ha-mt.johnnyparafango.com"
+        description: "Home Assistant"
+        icon: home-assistant
+        wigdet:
+          type: homeassistant
+          url: "https://ha-mt.johnnyparafango.com"
+          key: {{HOMEPAGE_VAR_HA_KEY}}
+          custom:
+            - state: sensor.powermeter_instant_power
+            - state: sensor.electricity_meter
+              label: Daily Electricity Consumption
+    - ESPHome:
+        href: "https://esphome"
+        description: "ESP Home"
+        icon: esphome
+        widget:
+          type: esphome
+          url: "http://esphome:6052"
+    - OctoPrint:
+        href: "https://octoprint"
+        icon: octoprint
+        widget:
+          type: octoprint
+          url: http://octoprint
+          key: {{HOMEPAGE_VAR_OCTOPRINT_KEY}}
+- Network:
+    - PiHole:
+        href: https://pi.hole
+        description: "PiHole"
+        icon: pi-hole
+        widget:
+          type: pihole
+          url: "https://pi.hole"
+          key: {{HOMEPAGE_VAR_PIHOLE_KEY}}
+    - Nginx Proxy Manager:
+        href: "https://nginxproxymanager"
+        description: "Nginx Proxy Manager"
+        icon: nginx-proxy-manager
+        widget:
+          type: npm
+          url: https://nginxproxymanager
+          username: {{HOMEPAGE_VAR_NPM_USER}}
+          password: {{HOMEPAGE_VAR_NPM_PASSWD}}
+    - Wireguard:
+        href: "https://wg-easy"
+        description: "Wireguard Server"
+        icon: wireguard
+- Cloud:
+    - Cloudflare Dashboard:
+        href: "https://dash.cloudflare.com"
+        description: "Cloudflare Dashboard"
+        icon: cloudflare
+    - Uptime Robot:
+        href: "https://dashboard.uptimerobot.com/monitors"
+        description: "Uptime Robot"
+        icon: uptime-kuma
+        widget:
+          type: uptimerobot
+          url: "https://api.uptimerobot.com"
+          key: {{HOMEPAGE_VAR_UPTIMEROBOT_KEY}}
+- Applications:
+    - Grafana:
+        href: "https://grafana"
+        description: Grafana
+        icon: grafana
+    - InfluxDB:
+        href: "https://influxdb"
+        description: InfluxDB
+        icon: influxdb
+    - Portainer:
+        href: "https://portainer"
+        description: Portainer
+        icon: portainer
+        widget:
+          type: portainer
+          url: "http://portainer:9000"
+          env: 2
+          key: {{HOMEPAGE_VAR_PORTAINER_KEY}}
+    - Glances:
+        href: "https://glances"
+        description: "Glances"
+        icon: glances
+- Monitoring:
+    # - System Information:
+    #     widget:
+    #       type: glances
+    #       url: http://glances:61208
+    #       metric: info
+    #       chart: false
+    - CPU Usage:
+        widget:
+          type: glances
+          url: http://glances:61208
+          metric: cpu
+          chart: false
+    - Process:
+        widget:
+          type: glances
+          url: http://glances:61208
+          metric: process
+          chart: false
+    - Network Usage:
+        widget:
+          type: glances
+          url: http://glances:61208
+          metric: network:eth0
+          chart: false
+    - Memory Usage:
+        widget:
+          type: glances
+          url: http://glances:61208
+          metric: memory
+          chart: false
+    - CPU Temp Core 0:
+        widget:
+          type: glances
+          url: http://glances:61208
+          metric: sensor:Core 0
+          chart: false
+    - CPU Temp Core 2:
+        widget:
+          type: glances
+          url: http://glances:61208
+          metric: sensor:Core 2
+          chart: false
