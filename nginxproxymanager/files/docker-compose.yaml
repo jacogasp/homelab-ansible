@@ -11,6 +11,52 @@ services:
       - 80:80
       - 81:81
       - 443:443
+  npmgrafstats:
+    container_name: npmgrafstats
+    image: smilebasti/npmgrafstats:latest # change to ghcr.io/smilebasti/npmgrafstats if you prefer Github Container Registry
+    restart: unless-stopped
+    environment:
+      REDIRECTION_LOGS:
+      INTERNAL_LOGS:
+      MONITORING_LOGS:
+      INFLUX_HOST:
+      INFLUX_BUCKET:
+      INFLUX_ORG:
+      INFLUX_TOKEN:
+    volumes:
+      - ./volumes/data/logs:/logs
+      - ./volumes/geolite:/geolite
+      # - ./volumes/npmgraf/monitoringips.txt:/monitoringips.txt # optional only mount if preexists and a wanted feature
+    depends_on:
+      - geoipupdate
+      - nginxproxymanager
+
+  geoipupdate:
+    container_name: geoipupdate
+    image: maxmindinc/geoipupdate
+    restart: unless-stopped
+    environment:
+      GEOIPUPDATE_ACCOUNT_ID:
+      GEOIPUPDATE_LICENSE_KEY:
+      GEOIPUPDATE_EDITION_IDS:
+      GEOIPUPDATE_FREQUENCY:
+    volumes:
+      - ./volumes/geolite:/usr/share/GeoIP
+
+  influxdb:
+    container_name: influxdb
+    image: influxdb:2.7-alpine
+    restart: unless-stopped
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE:
+      DOCKER_INFLUXDB_INIT_USERNAME:
+      DOCKER_INFLUXDB_INIT_PASSWORD:
+      DOCKER_INFLUXDB_INIT_ORG:
+      DOCKER_INFLUXDB_INIT_BUCKET:
+    volumes:
+      # Mount for influxdb data directory and configuration
+      - ./volumes/influxdbv2:/var/lib/influxdb2
+
 networks:
   default:
     name: scoobydoo

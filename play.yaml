@@ -1,5 +1,5 @@
 ---
-- hosts: homelab
+- hosts: thinkcentre
   vars:
     install_directory: /home/jacopo/homelab
   roles:
@@ -25,3 +25,7 @@
       tags: [portainer]
     - name: wg-easy
       tags: [wg-easy]
+    - name: mattermost
+      tags: [mattermost]
+    - name: grafana
+      tags: [grafana]

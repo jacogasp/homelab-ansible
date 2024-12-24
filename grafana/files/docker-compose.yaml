@@ -1,0 +1,11 @@
+services:
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    restart: unless-stopped
+    volumes:
+      - ./volumes/grafana:/var/lib/grafana # after start: sudo chown 472:472 grafana-storage
+networks:
+  default:
+    name: scoobydoo
+    external: true
