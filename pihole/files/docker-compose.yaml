@@ -6,13 +6,12 @@ services:
     network_mode: host
     restart: unless-stopped
     volumes:
-      - ./data/pihole:/etc/pihole
-      - ./data/dnsmasq:/etc/dnsmasq.d
+      - ./volumes/etc-pihole:/etc/pihole
+      - ./volumes/etc-dnsmasq.d:/etc/dnsmasq.d
     cap_add:
       - NET_ADMIN
     environment:
-      - WEBPASSWORD=
-      - TZ=Europe/Rome
-      - FTLCONF_LOCAL_IPV4=192.168.1.253
-      - WEB_PORT=8900
-      - DNSMASQ_USER=pihole
+      TZ: Europe/Rome
+      WEBPASSWORD:
+      WEB_PORT:
+      DNSMASQ_USER:
