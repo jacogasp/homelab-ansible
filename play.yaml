@@ -27,5 +27,7 @@
       tags: [wg-easy]
     - name: mattermost
       tags: [mattermost]
+    - name: influxdb
+      tags: [influxdb]
     - name: grafana
       tags: [grafana]

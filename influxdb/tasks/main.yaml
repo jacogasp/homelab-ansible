@@ -1,9 +1,9 @@
 ---
 - name: Set install directory
   set_fact:
-    install_directory: "{{ install_directory }}/nginxproxymanager"
+    install_directory: "{{ install_directory }}/influxdb"
 
-- name: Create Nginx Proxy Manager install directory
+- name: Create influxdb directory
   file:
     path: "{{ install_directory }}"
     state: directory
@@ -13,16 +13,6 @@
     path: "{{ install_directory }}/volumes"
     state: directory
 
-- name: Create data directory
-  file:
-    path: "{{ install_directory }}/volumes/data"
-    state: directory
-
-- name: Create let's encrypt directory
-  file:
-    path: "{{ install_directory }}/volumes/letsencrypt"
-    state: directory
-
 - name: Copy docker-compose.yml
   copy:
     src: docker-compose.yaml
@@ -30,7 +20,7 @@
 
 - name: Copy .env file
   copy:
-    src: ".env"
+    src: .env
     dest: "{{ install_directory }}/.env"
 
 - name: Run Docker Compose
