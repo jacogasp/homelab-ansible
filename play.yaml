@@ -31,3 +31,5 @@
       tags: [influxdb]
     - name: grafana
       tags: [grafana]
+    - name: telegraf
+      tags: [telegraf]
