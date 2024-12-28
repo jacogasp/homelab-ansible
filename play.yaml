@@ -1,7 +1,8 @@
 ---
-- hosts: thinkcentre
+- hosts:
+    - homelab
   vars:
-    install_directory: /home/jacopo/homelab
+    homelab_directory: /home/jacopo/homelab
   roles:
     - name: commons
       tags: [commons]
