@@ -1,13 +1,19 @@
 ---
+- name: Set install directory
+  set_fact:
+    install_directory: "{{ homelab_directory }}/grafana"
+
 - name: Create a directory for Grafana
   file:
-    path: "{{ install_directory }}/grafana"
+    path: "{{ install_directory }}/"
     state: directory
+
 - name: Copy the docker-compose.yml file
   copy:
     src: docker-compose.yaml
-    dest: "{{ install_directory }}/grafana/docker-compose.yaml"
+    dest: "{{ install_directory }}/docker-compose.yaml"
+
 - name: Run Docker Compose
   community.docker.docker_compose_v2:
-    project_src: "{{ install_directory }}/grafana"
+    project_src: "{{ install_directory }}"
     state: present # Use 'present' to ensure the services are running

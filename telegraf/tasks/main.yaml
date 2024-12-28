@@ -1,7 +1,7 @@
 ---
 - name: Set install directory
   set_fact:
-    install_directory: "{{ install_directory }}/telegraf"
+    install_directory: "{{ homelab_directory }}/telegraf"
 
 - name: Create telegraf directory
   file:

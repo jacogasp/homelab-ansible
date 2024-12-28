@@ -1,15 +1,19 @@
 ---
+- name: Set install directory
+  set_fact:
+    install_directory: "{{ homelab_directory }}/esphome"
+
 - name: Create a directory for ESPHome
   file:
-    path: "{{ install_directory }}/esphome"
+    path: "{{ install_directory }}/"
     state: directory
 
 - name: Copy the docker-compose.yml file
   copy:
     src: docker-compose.yaml
-    dest: "{{ install_directory }}/esphome/docker-compose.yaml"
+    dest: "{{ install_directory }}/docker-compose.yaml"
 
 - name: Run Docker Compose
   community.docker.docker_compose_v2:
-    project_src: "{{ install_directory }}/esphome"
+    project_src: "{{ install_directory }}"
     state: present # Use 'present' to ensure the services are running

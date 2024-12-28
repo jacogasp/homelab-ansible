@@ -1,21 +1,25 @@
 ---
+- name: Set install directory
+  set_fact:
+    install_directory: "{{ homelab_directory }}/homeassistant"
+
 - name: Create a directory for Home Assistant
   file:
-    path: "{{ install_directory }}/homeassistant"
+    path: "{{ install_directory }}/"
     state: directory
 
-- name: Copy hap.service
-  copy:
-    src: hap.service
-    dest: "/etc/avahi/services"
-  become: true
+# - name: Copy hap.service
+#   copy:
+#     src: hap.service
+#     dest: "/etc/avahi/services"
+#   become: true
 
 - name: Copy docker-compose.yml file
   copy:
     src: docker-compose.yaml
-    dest: "{{ install_directory }}/homeassistant/docker-compose.yaml"
+    dest: "{{ install_directory }}/docker-compose.yaml"
 
 - name: Run docker compose
   community.docker.docker_compose_v2:
-    project_src: "{{ install_directory }}/homeassistant"
+    project_src: "{{ install_directory }}"
     state: present # Use 'present' to ensure the services are running

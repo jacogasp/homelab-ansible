@@ -1,7 +1,7 @@
 ---
 - name: Set install directory
   set_fact:
-    install_directory: "{{ install_directory }}/influxdb"
+    install_directory: "{{ homelab_directory }}/influxdb"
 
 - name: Create influxdb directory
   file:

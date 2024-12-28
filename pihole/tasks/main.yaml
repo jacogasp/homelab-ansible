@@ -1,7 +1,7 @@
 ---
 - name: Set install directory
   set_fact:
-    install_directory: "{{ install_directory }}/pihole"
+    install_directory: "{{ homelab_directory }}/pihole"
 
 - name: Create pihole install directory
   file:

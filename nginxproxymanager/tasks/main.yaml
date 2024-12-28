@@ -1,7 +1,7 @@
 ---
 - name: Set install directory
   set_fact:
-    install_directory: "{{ install_directory }}/nginxproxymanager"
+    install_directory: "{{ homelab_directory }}/nginxproxymanager"
 
 - name: Create Nginx Proxy Manager install directory
   file:
