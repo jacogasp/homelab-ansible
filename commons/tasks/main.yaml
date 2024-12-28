@@ -3,28 +3,14 @@
   dnf:
     name:
       - dnf-utils
-      - avahi
+      - python3-requests
     state: present
   become: true
 
-- name: Start and enable avahi service
-  systemd:
-    name: avahi-daemon
-    state: started
-    enabled: yes
+- name: Add Docker CE repository
+  command: >
+    dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
   become: true
-
-- name: Copy avahi-daemon.conf
-  copy:
-    src: avahi-daemon.conf
-    dest: /etc/avahi/avahi-daemon.conf
-  become: true
-  register: avahiconf
-
-- name: Reload avahi-daemon
-  command: avahi-daemon -r
-  become: true
-  when: avahiconf.changed
 
 - name: Install Docker
   dnf:
@@ -38,13 +24,23 @@
     name: docker
     state: started
     enabled: yes
+  become: true
+
+- name: Add user to group docker
+  user:
+    name: jacopo
+    groups: docker
+    append: yes
+  become: true
 
 - name: Create Docker network scoobydoo
   docker_network:
     name: scoobydoo
     state: present
+  become: true
 
 - name: Copy the RootCA file to the host
   copy:
     src: "~/Library/Application Support/mkcert/rootCA.pem"
     dest: /etc/pki/ca-trust/source/anchors/homeCA.pem
+  become: true
