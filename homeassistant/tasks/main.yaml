@@ -8,12 +8,6 @@
     path: "{{ install_directory }}/"
     state: directory
 
-# - name: Copy hap.service
-#   copy:
-#     src: hap.service
-#     dest: "/etc/avahi/services"
-#   become: true
-
 - name: Copy docker-compose.yml file
   copy:
     src: docker-compose.yaml

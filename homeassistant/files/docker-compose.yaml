@@ -6,8 +6,10 @@ services:
     volumes:
       - ./config:/config
       - /etc/localtime:/etc/localtime:ro
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
     ports:
-      - 21064:21064
+      - 21065:21065
 networks:
   default:
     name: scoobydoo
