@@ -44,3 +44,9 @@
     src: "~/Library/Application Support/mkcert/rootCA.pem"
     dest: /etc/pki/ca-trust/source/anchors/homeCA.pem
   become: true
+
+- name: Copy iptable-nat to /etc/modules-load.d
+  copy:
+    src: "iptable-nat.conf"
+    dest: "/etc/modules-load.d/iptable-nat.conf"
+  become: true
