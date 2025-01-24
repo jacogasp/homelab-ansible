@@ -16,3 +16,21 @@ services:
       WEB_PORT:
       DNSMASQ_USER:
       FTLCONF_LOCAL_IPV4:
+
+  exporter:
+    image: jacogasp/pihole-influx-exporter
+    container_name: pihole-influx-exporter
+    depends_on:
+      - pihole
+    environment:
+      INFLUXDB_URL:
+      INFLUXDB_BUCKET:
+      PIHOLE_HOST:
+      PIHOLE_ENDPOINT:
+      PIHOLE_TOKEN:
+      POLLING_TIME:
+
+networks:
+  default:
+    name: scoobydoo
+    external: true
