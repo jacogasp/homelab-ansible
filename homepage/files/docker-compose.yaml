@@ -8,6 +8,7 @@ services:
       - ./config:/app/config
       - /etc/pki/ca-trust/source/anchors:/usr/local/share/ca-certificates
     environment:
+      HOMEPAGE_VAR_HA_URL:
       HOMEPAGE_VAR_HA_KEY:
       HOMEPAGE_VAR_OCTOPRINT_KEY:
       HOMEPAGE_VAR_PIHOLE_KEY:

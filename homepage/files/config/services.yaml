@@ -4,12 +4,12 @@
 
 - Home:
     - Home Assistant:
-        href: "https://ha-mt.johnnyparafango.com"
+        href: {{HOMEPAGE_VAR_HA_URL}}
         description: "Home Assistant"
         icon: home-assistant
         wigdet:
           type: homeassistant
-          url: "https://ha-mt.johnnyparafango.com"
+          url: {{HOMEPAGE_VAR_HA_URL}}
           key: {{HOMEPAGE_VAR_HA_KEY}}
           custom:
             - state: sensor.powermeter_instant_power
@@ -69,11 +69,6 @@
         href: "https://grafana"
         description: Grafana
         icon: grafana
-        widget:
-          type: grafana
-          url: http://grafana:3000
-          username: {{HOMEPAGE_VAR_GRAFANA_USER}}
-          password: {{HOMEPAGE_VAR_GRAFANA_PASSWD}}
     - InfluxDB:
         href: "https://influxdb"
         description: InfluxDB
@@ -101,42 +96,36 @@
     - CPU Usage:
         widget:
           type: glances
-          version: 4
           url: http://glances:61208
           metric: cpu
           chart: false
     - Process:
         widget:
           type: glances
-          version: 4
           url: http://glances:61208
           metric: process
           chart: false
     - Network Usage:
         widget:
           type: glances
-          version: 4
           url: http://glances:61208
           metric: network:eth0
           chart: false
     - Memory Usage:
         widget:
           type: glances
-          version: 4
           url: http://glances:61208
           metric: memory
           chart: false
     - CPU Temp Core 0:
         widget:
           type: glances
-          version: 4
           url: http://glances:61208
           metric: sensor:Core 0
           chart: false
     - CPU Temp Core 2:
         widget:
           type: glances
-          version: 4
           url: http://glances:61208
           metric: sensor:Core 2
           chart: false
