@@ -69,6 +69,11 @@
         href: "https://grafana"
         description: Grafana
         icon: grafana
+        widget:
+          type: grafana
+          url: http://grafana:3000
+          username: {{HOMEPAGE_VAR_GRAFANA_USER}}
+          password: {{HOMEPAGE_VAR_GRAFANA_PASSWD}}
     - InfluxDB:
         href: "https://influxdb"
         description: InfluxDB

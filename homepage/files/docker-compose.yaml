@@ -16,6 +16,8 @@ services:
       HOMEPAGE_VAR_NPM_PASSWD:
       HOMEPAGE_VAR_UPTIMEROBOT_KEY:
       HOMEPAGE_VAR_PORTAINER_KEY:
+      HOMEPAGE_VAR_GRAFANA_USER:
+      HOMEPAGE_VAR_GRAFANA_PASSWD:
 networks:
   default:
     name: scoobydoo
