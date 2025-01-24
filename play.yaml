@@ -16,6 +16,8 @@
       tags: [homeassistant]
     - name: homepage
       tags: [homepage]
+    - name: homebridge
+      tags: [homebridge]
     - name: nginxproxymanager
       tags: [nginxproxymanager]
     - name: octoprint

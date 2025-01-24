@@ -1,0 +1,18 @@
+services:
+  homebridge:
+    container_name: homebridge
+    image: homebridge/homebridge
+    restart: unless-stopped
+    network_mode: host
+    security_opt:
+      - apparmor:unconfined
+    ports:
+      - 51145:51145
+      - 48000:48000
+    volumes:
+      - ./config:/homebridge
+
+networks:
+  default:
+    external: true
+    name: scoobydoo
