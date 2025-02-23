@@ -1,0 +1,35 @@
+---
+- name: Install PulseAudio
+  dnf:
+    name:
+      - pulseaudio
+      - pulseaudio-utils
+      - alsa-plugins-pulseaudio
+    state: present
+  become: true
+
+- name: Start and enable PulseAudio
+  systemd:
+    name: pulseaudio
+    state: started
+    enabled: yes
+    scope: user
+
+- name: Set install directory
+  set_fact:
+    install_directory: "{{ homelab_directory }}/shairport-sync"
+
+- name: Create shairport-sync directory
+  file:
+    path: "{{ install_directory }}"
+    state: directory
+
+- name: Copy docker-compose.yml
+  copy:
+    src: docker-compose.yaml
+    dest: "{{ install_directory }}/docker-compose.yaml"
+
+- name: Run Docker Compose
+  community.docker.docker_compose_v2:
+    project_src: "{{ install_directory }}"
+    state: present # Use 'present' to ensure the services are running

@@ -36,3 +36,5 @@
       tags: [grafana]
     - name: telegraf
       tags: [telegraf]
+    - name: shairport-sync
+      tags: [shairport-sync]

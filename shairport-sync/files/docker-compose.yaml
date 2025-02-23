@@ -1,0 +1,13 @@
+services:
+  shairport-sync:
+    image: mikebrady/shairport-sync:latest
+    network_mode: host
+    restart: unless-stopped
+    container_name: shairport-sync
+    devices:
+      - "/dev/snd"
+    command: -- -d hw:1,0
+    logging:
+      options:
+        max-size: "200k"
+        max-file: "10"
