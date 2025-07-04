@@ -4,11 +4,21 @@ services:
     image: portainer/portainer-ce:latest
     restart: unless-stopped
     environment:
-      - VIRTUAL_HOST=portainer
-      - VIRTUAL_PORT=9000
+      VIRTUAL_HOST: portainer
+      VIRTUAL_PORT: 9000
+      PORTAINER_KEY:
     ports:
       - 8000:8000
       - 9000:9000
+    labels:
+      - homepage.group=Applications
+      - homepage.name=Portainer
+      - homepage.icon=portainer
+      - homepage.href=https://portainer
+      - homepage.widget.type=portainer
+      - homepage.widget.url=http://portainer:9000
+      - homepage.widget.env=2
+      - homepage.widget.key=$PORTAINER_KEY
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data:/data

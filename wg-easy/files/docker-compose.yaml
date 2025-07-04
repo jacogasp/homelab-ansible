@@ -14,6 +14,11 @@ services:
       WG_PORT: 51820
       PORT: 51821
       DEBUG: Server,WireGuard
+    labels:
+      - homepage.group=Network
+      - homepage.name=Wg-Easy
+      - homepage.icon=wireguard
+      - homepage.href=https://wg-easy
     ports:
       - 51820:51820/udp
     sysctls:

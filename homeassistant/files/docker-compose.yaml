@@ -6,10 +6,19 @@ services:
     volumes:
       - ./config:/config
       - /etc/localtime:/etc/localtime:ro
-    devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
+    # devices:
+    #   - /dev/ttyUSB0:/dev/ttyUSB0
     ports:
       - 21065:21065
+    env_file: .env
+    labels:
+      - homepage.group=Home
+      - homepage.name=Home Assistant
+      - homepage.icon=home-assistant
+      - homepage.href=$HOME_ASSISTANT_URL
+      - homepage.widget.type=homeassistant
+      - homepage.widget.url=$HOME_ASSISTANT_URL
+      - homepage.widget.key=$HOME_ASSISTANT_KEY
 networks:
   default:
     name: scoobydoo

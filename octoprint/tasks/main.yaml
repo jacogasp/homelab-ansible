@@ -13,6 +13,11 @@
     src: docker-compose.yaml
     dest: "{{ install_directory }}/docker-compose.yaml"
 
+- name: Copy .env file
+  copy:
+    src: ".env"
+    dest: "{{ install_directory }}/.env"
+
 - name: Run Docker Compose
   community.docker.docker_compose_v2:
     project_src: "{{ install_directory }}"

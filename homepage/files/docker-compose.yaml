@@ -7,6 +7,7 @@ services:
     volumes:
       - ./config:/app/config
       - /etc/pki/ca-trust/source/anchors:/usr/local/share/ca-certificates
+      - /var/run/docker.sock/:/var/run/docker.sock:ro
     environment:
       HOMEPAGE_VAR_HA_URL:
       HOMEPAGE_VAR_HA_KEY:
@@ -18,6 +19,7 @@ services:
       HOMEPAGE_VAR_PORTAINER_KEY:
       HOMEPAGE_VAR_GRAFANA_USER:
       HOMEPAGE_VAR_GRAFANA_PASSWD:
+      HOMEPAGE_ALLOWED_HOSTS:
 networks:
   default:
     name: scoobydoo

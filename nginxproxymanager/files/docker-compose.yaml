@@ -7,6 +7,18 @@ services:
     volumes:
       - ./volumes/data:/data
       - ./volumes/letsencrypt:/etc/letsencrypt
+    environment:
+      NPM_USER:
+      NPM_PASSWORD:
+    labels:
+      - homepage.group=Network
+      - homepage.name=Nginx Proxy Manager
+      - homepage.href=https://nginxproxymanager
+      - homepage.icon=nginx-proxy-manager
+      - homepage.widget.type=npm
+      - homepage.widget.url=https://nginxproxymanager
+      - homepage.widget.username=$NPM_USER
+      - homepage.widget.password=$NPM_PASSWORD
     ports:
       - 80:80
       - 81:81

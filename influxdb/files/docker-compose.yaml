@@ -9,6 +9,11 @@ services:
       DOCKER_INFLUXDB_INIT_PASSWORD:
       DOCKER_INFLUXDB_INIT_ORG:
       DOCKER_INFLUXDB_INIT_BUCKET:
+    labels:
+      - homepage.group=Applications
+      - homepage.name=InfluxDB
+      - homepage.icon=influxdb
+      - homepage.href=https://influxdb
     volumes:
       # Mount for influxdb data directory and configuration
       - ./volumes/influxdbv2:/var/lib/influxdb2

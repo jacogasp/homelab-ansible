@@ -9,6 +9,11 @@ services:
     environment:
       TZ: Europe/Rome
       GLANCES_OPT: -w
+    labels:
+      - homepage.group=Applications
+      - homepage.name=glances
+      - homepage.icon=glances
+      - homepage.href=https://glances
 networks:
   default:
     name: scoobydoo

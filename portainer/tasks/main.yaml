@@ -3,7 +3,6 @@
   set_fact:
     install_directory: "{{ homelab_directory }}/portainer"
 
-
 - name: Create a directory for Portainer
   file:
     path: "{{ install_directory }}/"
@@ -13,6 +12,11 @@
   copy:
     src: docker-compose.yaml
     dest: "{{ install_directory }}/docker-compose.yaml"
+
+- name: Copy .env file
+  copy:
+    src: ".env"
+    dest: "{{ install_directory }}/.env"
 
 - name: Run Docker Compose
   community.docker.docker_compose_v2:

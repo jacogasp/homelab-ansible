@@ -6,6 +6,15 @@ services:
     restart: unless-stopped
     volumes:
       - ./config:/octoprint
+    env_file: .env
+    labels:
+      - homepage.group=Home
+      - homepage.name=OctoPrint
+      - homepage.icon=octoprint
+      - homepage.href=$OCTOPRINT_URL
+      - homepage.widget.type=octoprint
+      - homepage.widget.url=$OCTOPRINT_URL
+      - homepage.widget.key=$OCTOPRINT_KEY
     # devices:
     #   - /dev/ttyACM0:/dev/ttyACM0
 
