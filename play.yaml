@@ -1,6 +1,6 @@
 ---
 - hosts:
-    - homelab
+    - thinkcentre
   vars:
     homelab_directory: /home/jacopo/homelab
   roles:

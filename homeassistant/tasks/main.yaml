@@ -8,6 +8,12 @@
     path: "{{ install_directory }}/"
     state: directory
 
+- name: Copy config directory
+  copy:
+    src: config
+    dest: "{{ install_directory }}/"
+  become: true
+
 - name: Copy docker-compose.yml file
   copy:
     src: docker-compose.yaml
