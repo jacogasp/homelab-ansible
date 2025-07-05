@@ -1,6 +1,13 @@
 ---
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/services
+- Network:
+    - FRITZ!Box:
+        href: "https://fritzbox"
+        icon: fritzbox
+        widget:
+          type: fritzbox
+          url: http://192.168.178.1
 - Cloud:
     - Cloudflare Dashboard:
         href: "https://dash.cloudflare.com"
