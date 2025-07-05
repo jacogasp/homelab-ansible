@@ -2,7 +2,7 @@ services:
   esphome:
     container_name: esphome
     hostname: esphome
-    image: esphome/esphome
+    image: ghcr.io/esphome/esphome
     restart: unless-stopped
     privileged: true
     volumes:
