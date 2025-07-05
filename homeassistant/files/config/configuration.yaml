@@ -16,3 +16,8 @@ http:
 homekit:
   port: 21065
   advertise_ip: 192.168.178.2
+  filter:
+    include_entity_globs:
+      - sensor.electricity_meter*
+      - sensor.powermeter_instant_power*
+      - sensor.weather_station_*

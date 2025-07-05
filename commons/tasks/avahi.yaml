@@ -23,23 +23,3 @@
 - name: Reload avahi-daemon
   command: avahi-daemon -r
   become: true
-  when: avahiconf.changed
-
-- name: Start and enable avahi service
-  systemd:
-    name: avahi-daemon
-    state: started
-    enabled: yes
-  become: true
-
-- name: Copy avahi-daemon.conf
-  copy:
-    src: avahi-daemon.conf
-    dest: /etc/avahi/avahi-daemon.conf
-  become: true
-  register: avahiconf
-
-- name: Reload avahi-daemon
-  command: avahi-daemon -r
-  become: true
-  when: avahiconf.changed

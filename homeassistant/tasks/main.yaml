@@ -13,6 +13,7 @@
     src: config
     dest: "{{ install_directory }}/"
   become: true
+  register: config
 
 - name: Copy docker-compose.yml file
   copy:
@@ -24,7 +25,25 @@
     src: ".env"
     dest: "{{ install_directory }}/.env"
 
+- name: Copy hap.service
+  copy:
+    src: hap.service
+    dest: /etc/avahi/services/hap.service
+  become: true
+  register: avahiconf
+
+- name: Restart avahi-daemon
+  command: systemctl restart avahi-daemon
+  become: true
+  when: avahiconf.changed
+
 - name: Run docker compose
   community.docker.docker_compose_v2:
     project_src: "{{ install_directory }}"
     state: present # Use 'present' to ensure the services are running
+
+- name: Restart docker compose
+  community.docker.docker_compose_v2:
+    project_src: "{{ install_directory }}"
+    state: restarted
+  when: config.changed

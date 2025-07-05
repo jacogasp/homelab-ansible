@@ -19,10 +19,11 @@ services:
       - homepage.widget.type=homeassistant
       - homepage.widget.url=$HOME_ASSISTANT_URL
       - homepage.widget.key=$HOME_ASSISTANT_KEY
-      - homepage.widget.custom[0].state=sensor.powermeter_instant_power
-      - homepage.widget.custom[1].state=sensor.electricity_meter
-      - homepage.widget.custom[1].label=Daily Electricity Consumption
-      - homepage.widget.custom[2].state=sensor.electricity_meter
+      - homepage.widget.custom[0].template={{ states.sensor.powermeter_instant_power.state_with_unit }}
+      - homepage.widget.custom[0].label=Instant Power
+      - homepage.widget.custom[1].template={{ states.sensor.electricity_meter.state_with_unit }}
+      - homepage.widget.custom[1].label=Electricity Meter
+
 networks:
   default:
     name: scoobydoo
