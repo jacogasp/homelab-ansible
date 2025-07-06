@@ -13,9 +13,9 @@ services:
       - homepage.name=PiHole
       - homepage.icon=pi-hole
       - homepage.href=https://pi.hole
-      - homepage.widget.type=pihole
-      - homepage.widget.url=https://pi.hole
-      - homepage.widget.key=$PIHOLE_TOKEN
+      # - homepage.widget.type=pihole
+      # - homepage.widget.url=https://pi.hole
+      # - homepage.widget.key=$PIHOLE_TOKEN
     cap_add:
       - NET_ADMIN
     environment:
