@@ -8,10 +8,10 @@
     path: "{{ install_directory }}/"
     state: directory
 
-- name: Copy config directory
-  copy:
-    src: config
-    dest: "{{ install_directory }}/"
+- name: Apply configuration.yaml template
+  template:
+    src: "files/configuration.yaml.j2"
+    dest: "{{ install_directory }}/config/configuration.yaml"
   become: true
   register: config
 

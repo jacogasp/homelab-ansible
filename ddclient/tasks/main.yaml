@@ -20,7 +20,7 @@
 
 - name: Copy ddclient.conf
   copy:
-    src: ddclient.conf
+    src: "ddclient.{{ group_names[0] }}.conf"
     dest: "{{ install_directory }}/config/ddclient.conf"
 
 - name: Run Docker Compose

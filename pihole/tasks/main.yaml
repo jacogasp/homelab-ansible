@@ -28,7 +28,7 @@
 
 - name: Copy the .env file
   copy:
-    src: .env
+    src: ".{{ group_names[0] }}.env"
     dest: "{{ install_directory }}/.env"
 
 - name: Run Docker Compose
