@@ -15,11 +15,11 @@ services:
       - homepage.name=Wg-Easy
       - homepage.icon=wireguard
       - homepage.href=https://wg-easy
-      - homepage.widget.type=wgeasy
-      - homepage.widget.version=2
-      - homepage.widget.url=http://wg-easy:51821
-      - homepage.widget.user=$USER
-      - homepage.widget.password=$PASSWD
+      # - homepage.widget.type=wgeasy
+      # - homepage.widget.version=2
+      # - homepage.widget.url=http://wg-easy:51821
+      # - homepage.widget.user=$USER
+      # - homepage.widget.password=$PASSWD
     ports:
       - 51820:51820/udp
     sysctls:
