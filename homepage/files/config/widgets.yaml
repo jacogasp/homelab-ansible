@@ -5,8 +5,11 @@
 - resources:
     cpu: true
     cputemp: true
+    tempmin: 0 # optional, minimum cpu temp
+    tempmax: 100 # optional, maximum cpu temp
     memory: true
     disk: /
+    network: true
 
 - search:
     provider: duckduckgo
